@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}Hello{% endblock %} {% block content
+%}
+<div class="container">
+  <p id="time-par">Time remaining = <span id="timer"></span> sec</p>
+  <div>
+    <p>High Score: {{highscore}}</p>
+    <p>Times Played: {{numplays}}</p>
+  </div>
+  <h3 id="score">Current Score: 0</h3>
+  <p id="not-a-word"></p>
+  <table>
+    {%for row in session['board']%}
+    <tr>
+      {%for letter in row%}
+      <td>{{letter}}</td>
+      {%endfor%}
+    </tr>
+    {%endfor%}
+  </table>
+  <br />
+  <form action="" method="post">
+    <label for="guess">Enter your guesses here! </label>
+    <input type="text" name="word" autofocus placeholder="guess" />
+    <button>Enter</button>
+  </form>
+</div>
+
+{% endblock %}
